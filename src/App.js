@@ -1,23 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState , useEffect} from "react";
+import Home from "./pages/Home";
+import ChateRome from "./pages/ChateRome";
+import api from "./api/local";
+import { userContext } from "./context/userContext";
+import LodingBage from "./components/LodingBage";
 
 function App() {
+  const [isLoding , setIsLoding]= useState(false)
+ 
+  useEffect(() => {
+    const getUser = () => {
+      fetch(process.env.REACT_API_URL+"/auth/check-user", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true,
+        },
+      })
+        .then((response) => {
+          if (response.status === 200) return response.json();
+          throw new Error("authentication has been failed!");
+        })
+        .then((resObject) => {
+          setUser(resObject.user._json);
+          setTimeout(()=>{
+                  setIsLoding(false)
+          }, 2000)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getUser();
+  }, []);
+  
+  const [user , setUser]= useState(null)
+ 
+  api.defaults.withCredentials=true
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+        
+      
+      <userContext.Provider value={{ user , setUser }}>
+      <LodingBage isLoding={isLoding}/>
+        {user === null?<Home/>:<ChateRome/>}
+      </userContext.Provider>
+    
     </div>
   );
 }
