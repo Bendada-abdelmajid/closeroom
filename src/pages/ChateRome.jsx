@@ -12,7 +12,7 @@ export default function ChateRome() {
   const [rome, setRome] = useState(null);
   const [groupData, setGroupData] = useState(null);
   useEffect(() => {
-    const pusher = new Pusher(process.env.REACT_PUSHER_key, {
+    const pusher = new Pusher(process.env.REACT_APP_PUSHER_key, {
       cluster: "eu",
     });
 

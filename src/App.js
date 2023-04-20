@@ -11,7 +11,11 @@ function App() {
  
   useEffect(() => {
     const getUser = () => {
-      fetch(process.env.REACT_API_URL+"/auth/check-user", {
+      console.log(process.env.REACT_APP_API_URL)
+      console.log(process.env.REACT_APP_API_URL)
+      console.log(process.env.REACT_APP_API_URL)
+      console.log(process.env.REACT_APP_API_URL)
+      fetch(process.env.REACT_APP_API_URL+"/auth/check-user", {
         method: "GET",
         credentials: "include",
         headers: {
