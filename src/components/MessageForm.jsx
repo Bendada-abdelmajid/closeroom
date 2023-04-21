@@ -6,7 +6,7 @@ import { IoHeadset, IoImageSharp } from "react-icons/io5";
 import api from "../api/local";
 import Picker from "emoji-picker-react";
 export default function MessageForm({ id, isRome, show }) {
-  console.log(id);
+  
   function showIcons() {
     document.querySelector(".icons-list").classList.toggle("show");
   }
@@ -31,7 +31,7 @@ export default function MessageForm({ id, isRome, show }) {
       isRome,
       type: "string",
     };
-    console.log(Data);
+    
     await api.post(`/message/new/${id}`, Data);
     messRef.current.value = "";
   }
@@ -54,7 +54,7 @@ export default function MessageForm({ id, isRome, show }) {
     Data.append("isRome", isRome);
     Data.append("type", type);
     Data.append("file", mes);
-    console.log(Data);
+    
     await api.post(`/message/new/${id}`, Data);
     messRef.current.value = "";
     imageRef.current.value = "";

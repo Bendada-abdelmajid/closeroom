@@ -20,7 +20,7 @@ export default function ChateRome() {
     channel.bind("inserted", function(data) {
       const romeId = data.messages[0].rome;
       const sender = data.messages[0].sender;
-      console.log(rome)
+      
       if (rome && rome.id === romeId) {
         alert("open roome")
         setMessages([...allmessages, data]);

@@ -31,7 +31,7 @@ export default function Groups({setGroupData,setRome, groups ,setGroups, setMess
         const id = e.target.id
         setActive(id)
         const responce = await api.get(`/group/`+id );
-        console.log(responce.data)
+        
 
         setGroupData(responce.data);
         setMessages(responce.data.allmessages)

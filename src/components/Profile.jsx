@@ -23,10 +23,10 @@ export default function Profile({ user, seeProfile, hidProfile }) {
           const alert=responce.data.data.alert
           const type=responce.data.data.type
           setAlert({alert,type})
-          console.log(responce.data.data.user)
+          
           if(responce.data.data.user) {
             setUser(responce.data.data.user)
-            console.log(user)
+            
           }
         }
         setEditUsername(false)
@@ -43,10 +43,10 @@ export default function Profile({ user, seeProfile, hidProfile }) {
           const alert=responce.data.data.alert
           const type=responce.data.data.type
           setAlert({alert,type})
-          console.log(responce.data.data.user)
+          
           if(responce.data.data.user) {
             setUser(responce.data.data.user)
-            console.log(user)
+            
           }
           setTimeout(() => {
             setAlert([])

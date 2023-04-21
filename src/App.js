@@ -7,14 +7,14 @@ import { userContext } from "./context/userContext";
 import LodingBage from "./components/LodingBage";
 
 function App() {
-  const [isLoding , setIsLoding]= useState(false)
+  const [isLoding , setIsLoding]= useState(true)
  
   useEffect(() => {
     const getUser = () => {
-      console.log(process.env.REACT_APP_API_URL)
-      console.log(process.env.REACT_APP_API_URL)
-      console.log(process.env.REACT_APP_API_URL)
-      console.log(process.env.REACT_APP_API_URL)
+      
+      
+      
+      
       fetch(process.env.REACT_APP_API_URL+"/auth/check-user", {
         method: "GET",
         credentials: "include",
@@ -35,7 +35,7 @@ function App() {
           }, 2000)
         })
         .catch((err) => {
-          console.log(err);
+          
         });
     };
     getUser();

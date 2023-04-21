@@ -1,10 +1,7 @@
 :root {
   --side-w: 400px;
 }
-.App {
-  max-height: 100vh;
-  overflow: hidden;
-}
+
 .body-container {
   width: 100%;
   display: grid;
@@ -15,6 +12,15 @@ aside,
 .scrollY {
   scrollbar-color: rgba(255, 255, 255, 0.16) transparent;
   scrollbar-width: thin;
+}
+aside::-webkit-scrollbar,
+.scrollY::-webkit-scrollbar {
+  width: 8px;
+}
+
+aside::-webkit-scrollbar-thumb,
+.scrollY::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.16) ;
 }
 .side-bar {
   position: sticky;

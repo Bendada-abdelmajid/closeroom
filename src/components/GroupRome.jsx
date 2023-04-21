@@ -22,10 +22,10 @@ export default function GroupRome({ groupData, allmessages, setnull }) {
     
   }, [])
 
-  console.log(isParticipant);
+  
   const group = groupData.group;
   const media= groupData.media;
-  console.log(media)
+  
   const groupUsers = groupData.users;
   const creater = groupData.creater;
   const isAdmin = groupData.isAdmin;
@@ -59,8 +59,8 @@ export default function GroupRome({ groupData, allmessages, setnull }) {
     setIsParticipant(res.data);
   }
   async function deleteGroup(e) {
-    const res = await api.post(`/group/delete/${group.id}`);
-    console.log(res.data);
+    await api.post(`/group/delete/${group.id}`);
+    
     setIsParticipant(false);
     document.getElementById(group.id).remove();
     setnull();
@@ -68,7 +68,7 @@ export default function GroupRome({ groupData, allmessages, setnull }) {
   async function exit(e) {
     const id = e.target.dataset.userId;
     const res = await api.post(`/group/exit/${group.id}/${id}`);
-    console.log(res.data);
+    
     setIsParticipant(res.data);
   }
   return (

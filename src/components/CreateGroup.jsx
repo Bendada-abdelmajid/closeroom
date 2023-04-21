@@ -28,7 +28,7 @@ export default function CreateGroup({openGroupeForm,closeGroupeForm, groups , se
       const alert=responce.data.alert
       const type=responce.data.type
       setAlert({alert,type})
-      console.log(responce.data)
+      
       if(responce.data.group) {
         setGroups([...groups, responce.data.group])
       }

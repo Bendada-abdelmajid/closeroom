@@ -1,10 +1,11 @@
 html {
   scroll-behavior: smooth;
   font-size: 12px;
+  scrollbar-width: none;
 }
 
 html::-webkit-scrollbar {
-  width: 8px;
+  width: 0px;
 }
 
 html::-webkit-scrollbar-thumb {
@@ -82,10 +83,11 @@ body {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 15px;
+  padding: 0 5vw;
+  max-width: 100%;
 }
 
-@media (min-width: 768px) {
+ /* @media (min-width: 768px) {
   .container {
     max-width: 750px;
   }
@@ -95,11 +97,12 @@ body {
   .container {
     max-width: 970px;
   }
-}
+}  */
 
 @media (min-width: 1200px) {
   .container {
     max-width: 1190px;
+    padding: 0 10px;
   }
 }
 :root{

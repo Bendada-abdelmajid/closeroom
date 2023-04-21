@@ -28,7 +28,7 @@ export default function SideBar({users,setUsers, setRome , setGroupData, setMess
     window.open(process.env.REACT_API_URL+"/auth/logout", "_self");
   }
   const { user } = useContext(userContext);
-  console.log(user)
+  
   return (
     <>
     <div className="side-bar">
