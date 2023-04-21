@@ -12,9 +12,8 @@ function App() {
   api.defaults.withCredentials = true;
   useEffect(() => {
     const getUser = async () => {
-      const response = api.get(
-        process.env.REACT_APP_API_URL + "/auth/check-user"
-      );
+      const response = await api.get("/auth/check-user");
+      
       console.log(response)
       if (response.status === 200) {
         const res = await response.json();
