@@ -11,19 +11,22 @@ function App() {
   
   api.defaults.withCredentials = true;
   useEffect(() => {
-    const getUser = async () => {
-      const response = await api.get("/auth/check-user");
-      
-      console.log(response)
-      if (response.status === 200) {
-        const res = await response.json();
-        setUser(res.user._json);
-       
-      }
+    const getUser =  () => {
+     api.get("/auth/check-user").then((response) => {
+        if (response.status === 200) return response.json();
+        throw new Error("authentication has been failed!");
+      })
+      .then((resObject) => {
+        setUser(resObject.user.__json);
+        setTimeout(() => {
+          setIsLoding(false);
+        }, 2000);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-      setTimeout(() => {
-        setIsLoding(false);
-      }, 2000);
+     
     };
     getUser();
   }, []);
