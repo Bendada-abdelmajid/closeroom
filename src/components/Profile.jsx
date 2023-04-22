@@ -18,7 +18,7 @@ export default function Profile({ user, seeProfile, hidProfile }) {
    
     async function editeProfile(e) {
         e.preventDefault();
-        if(usernameRef.current.value !== user.username) {
+        if(usernameRef.current.value !== user.name) {
             const responce = await api.post(`/user/editUsername/${user._id}`, {username:usernameRef.current.value});
           const alert=responce.data.data.alert
           const type=responce.data.data.type

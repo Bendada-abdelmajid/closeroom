@@ -36,7 +36,7 @@ export default function SideBar({users,setUsers, setRome , setGroupData, setMess
       <div className="header space-b">
         <div className="s-img center" onClick={()=>{setSeeProfile(true)}}>
          
-          {user.picture ? <img src={user.picture} alt="" /> : <FaUser/> }
+          {user? <img src={user.picture} alt="" /> : <FaUser/> }
           
         </div>
        
